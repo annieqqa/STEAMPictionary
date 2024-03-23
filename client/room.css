@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #000080;
+}
+
+content{
+  height: 100vh;
+  display: flex;
+}
+
+navbar{
+  height: 2rem;
+  font-size: 1.5rem;
+  display:flex;
+  background-color: cyan;
+  align-items: center;
+}
+
+.navbar{
+  margin: .75rem;
+}
+
+.navbar.username{
+  margin-left: 0;
+}
+
+.navbar.btn{
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar.btn:hover{
+  color: #555;
+  background-color: hsl(180 90 50)
+}
+
+.color-palette{
+  display: flex;
+  flex-direction: column;
+}
+
+.palette{
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: .25rem;
+  border-radius: 4rem;
+  justify-content: center;
+  border-color: white;
+}
+
+.palette.black{
+  background-color: black;
+}
+
+.palette.red{
+  background-color: red;
+}
+
+.palette.orange{
+  background-color: orange;
+}
+.palette.yellow{
+  background-color: yellow;
+}
+.palette.green{
+  background-color: green;
+}
+.palette.blue{
+  background-color: blue;
+}
+.palette.purple{
+  background-color: purple;
+}
+
+.game-board {
+  height: 100%;
+  width: 80vw;
+  background-color: white;
+  display: block;
+}
+
+.text-section {
+  margin-left: .5rem;
+  width:100vw;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 170px;
+}
+
+.word {
+  margin: 0;
+  margin-bottom: .25rem;
+  color: white;
+  text-align: center;
+  font-weight: normal;
+}
+
+.word.description{
+  font-size: smaller;
+  color: #8a8aa1;
+}
+
+.messages {
+  flex-grow: 1;
+  min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.guess-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.guess-input {
+  margin: .25rem 0;
+}
+
+.guess-btn {
+  cursor: pointer;
+}
+
+.ready-btn {
+  cursor: pointer;
+}
+
+.guess-container {
+  background-color: #CCC;
+  border-radius: .25rem;
+  padding: .4rem;
+  width: 100%;
+  margin-bottom: .25rem;
+}
+
+.guess-container > .name {
+  font-weight: bold;
+  font-size: .75rem;
+  color: #555;
+  word-break: break-all;
+}
+
+.guess-container > .text {
+  word-break: break-all;
+}
+
+@media (max-width: 500px) {
+  body {
+    flex-direction: column;
+  }
+
+  .text-section {
+    margin-left: 0;
+    margin-top: .5rem;
+    width: 100%;
+  }
+}
+
+.hide {
+  display: none !important;
+}

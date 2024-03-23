@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>STEAMPictionary</title>
+  <link rel="stylesheet" href="room.css">
+  <script src="room.js" defer></script>
+</head>
+<body>
+  <navbar data-nav-bar>
+    <a class = "navbar btn" href="/index.html"> 🢠 Back  </a>
+    <span data-username class="navbar username">Username</span>
+    <span data-roomId class="navbar roomId">Room Id</span>
+    <a class = "navbar btn" href="/revision.html"> 🠖 Revision Room  </a>
+  </navbar>
+  <content>
+    <palette data-color-palette class="color-palette">
+      <button class="palette black"></button>
+      <button class="palette red"></button>
+      <button class="palette orange"></button>
+      <button class="palette yellow"></button>
+      <button class="palette green"></button>
+      <button class="palette blue"></button>
+      <button class="palette purple"></button>
+      <img class="palette eraser" src="/eraser.png" alt="">
+    </palette>
+    <canvas class="game-board" data-canvas></canvas>
+    <section class="text-section">
+      <h3 class="word" data-word></h3>
+      <h3 class="word description" data-word-description></h3>
+      <button data-add-word-btn>Add to revision list</button>
+      <div class="messages" data-messages></div>
+      <form class="guess-form" data-guess-form>
+        <input type="text" data-guess-input class="guess-input" placeholder="Your Guess..." />
+        <button type="submit" class="guess-btn">Guess</button>
+      </form>
+      <button type="button" class="ready-btn" data-ready-btn>Ready</button>
+    </section>
+
+    <template data-guess-template>
+      <div class="guess-container">
+        <div class="name" data-name></div>
+        <div class="text" data-text></div>
+      </div>
+    </template>
+  </content>
+</body>
+</html>
