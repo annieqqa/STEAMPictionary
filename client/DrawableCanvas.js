@@ -87,12 +87,6 @@ export default function DrawableCanvas(navbar, palette, canvas, socket) {
     // console.log(start.x, palette.offsetWidth, start.y)
     ctx.moveTo(start.x - palette.offsetWidth, start.y - navbar.offsetHeight)
     ctx.lineTo(end.x - palette.offsetWidth, end.y - navbar.offsetHeight)
-    console.log(
-      start.x - palette.offsetWidth,
-      start.y - navbar.offsetHeight,
-      end.x - palette.offsetWidth,
-      end.y - navbar.offsetHeight
-    )
     ctx.stroke()
   }
 
