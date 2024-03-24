@@ -1,4 +1,4 @@
-# STEAMPictionary
+# STEAMPictionary (In progress, stay tuned!)
 A Fun and Engaging Way to Learn STEAM Concepts with Friends.
 
 ## Inspiration
