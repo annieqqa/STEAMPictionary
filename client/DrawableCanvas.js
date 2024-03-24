@@ -22,24 +22,31 @@ export default function DrawableCanvas(navbar, palette, canvas, socket) {
 
   blackButton.addEventListener("click", () => {
     color = "black"
+    lineWidth = 2
   })
   redButton.addEventListener("click", () => {
     color = "red"
+    lineWidth = 2
   })
   orangeButton.addEventListener("click", () => {
     color = "orange"
+    lineWidth = 2
   })
   yellowButton.addEventListener("click", () => {
     color = "yellow"
+    lineWidth = 2
   })
   greenButton.addEventListener("click", () => {
     color = "green"
+    lineWidth = 2
   })
   blueButton.addEventListener("click", () => {
     color = "blue"
+    lineWidth = 2
   })
   purpleButton.addEventListener("click", () => {
     color = "purple"
+    lineWidth = 2
   })
   eraser.addEventListener("click", () => {
     color = "white"
@@ -55,10 +62,12 @@ export default function DrawableCanvas(navbar, palette, canvas, socket) {
 
     const newPosition = { x: e.layerX, y: e.layerY }
     if (prevPosition != null) {
-      drawLine(prevPosition, newPosition)
+      drawLine(prevPosition, newPosition, lineWidth, color)
       socket.emit("draw", {
         start: normalizeCoordinates(prevPosition),
         end: normalizeCoordinates(newPosition),
+        lineWidth: lineWidth,
+        color: color,
       })
     }
 
@@ -66,11 +75,11 @@ export default function DrawableCanvas(navbar, palette, canvas, socket) {
   })
 
   canvas.addEventListener("mouseleave", () => (prevPosition = null))
-  socket.on("draw-line", (start, end) => {
-    drawLine(toCanvasSpace(start), toCanvasSpace(end))
+  socket.on("draw-line", (start, end, lineWidth, color) => {
+    drawLine(toCanvasSpace(start), toCanvasSpace(end), lineWidth, color)
   })
 
-  function drawLine(start, end) {
+  function drawLine(start, end, lineWidth, color) {
     const ctx = canvas.getContext("2d")
     ctx.lineWidth = lineWidth
     ctx.strokeStyle = color
@@ -78,6 +87,12 @@ export default function DrawableCanvas(navbar, palette, canvas, socket) {
     // console.log(start.x, palette.offsetWidth, start.y)
     ctx.moveTo(start.x - palette.offsetWidth, start.y - navbar.offsetHeight)
     ctx.lineTo(end.x - palette.offsetWidth, end.y - navbar.offsetHeight)
+    console.log(
+      start.x - palette.offsetWidth,
+      start.y - navbar.offsetHeight,
+      end.x - palette.offsetWidth,
+      end.y - navbar.offsetHeight
+    )
     ctx.stroke()
   }
 

@@ -17,3 +17,44 @@ const WORDS = [
     "A system of rules for addressing and routing data on the Internet",
   ],
 ]
+
+// let count = 0
+const headerElement = document.querySelector("[data-header]")
+headerElement.innerText = `You have ${WORDS.length} words to revise:`
+addWord()
+
+function addWord() {
+  WORDS.forEach((obj) => {
+    // count = count + 1
+    let word = obj[0]
+    let description = obj[1]
+    const lane = document.querySelector(`[data-card]`)
+    const cardElement = createCardElement(word, description)
+    lane.append(cardElement)
+  })
+}
+
+function createCardElement(word, description) {
+  const element = document.createElement("div")
+  addWordHeading(element, word)
+  addWordDescription(element, description)
+  element.classList.add("card-container")
+  console.log(element)
+  return element
+}
+
+function addWordHeading(element, heading) {
+  const wordElement = document.createElement("h3")
+  wordElement.innerText = heading
+  wordElement.classList.add("card")
+  wordElement.classList.add("word")
+  element.append(wordElement)
+}
+
+function addWordDescription(element, description) {
+  const descriptionElement = document.createElement("p")
+  descriptionElement.innerText = description
+  descriptionElement.classList.add("card")
+  descriptionElement.classList.add("description")
+  element.append(descriptionElement)
+}
