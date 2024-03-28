@@ -2,9 +2,7 @@ import { io } from "socket.io-client"
 import DrawableCanvas from "./DrawableCanvas.js"
 
 const production = process.env.NODE_ENV === "production"
-const serverURL = production
-  ? "https://annieqqa.github.io/STEAMPictionary-server/"
-  : "http://localhost:3000"
+const serverURL = production ? "http://localhost:3000" : "http://localhost:3000"
 
 const urlParams = new URLSearchParams(window.location.search)
 
